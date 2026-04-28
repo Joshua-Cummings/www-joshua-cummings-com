@@ -1,4 +1,17 @@
 <main>
   <h1>{{ name }}</h1>
   <hr>
+  <ul>
+    @for (link of navLinks(); track link.path) {
+      <li>
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active-link">
+          {{ link.label }}
+        </a>
+      </li>
+    } @empty {
+      <li>No links available.</li>
+    }
+  </ul>
 </main>
